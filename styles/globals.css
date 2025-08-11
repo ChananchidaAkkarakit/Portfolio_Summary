@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ฟอนต์และพื้นหลังของทั้งเว็บ */
+body {
+  @apply bg-[#FDFCEF] text-gray-800 ; /* indent-8 = เยื้องหัวบรรทัด 32px */
+  font-family: var(--font-karla), sans-serif;
+}
+
+/* จัดข้อความทุกย่อหน้าให้ justify */
+p {
+  text-align: justify;
+}
