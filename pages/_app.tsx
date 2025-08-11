@@ -5,13 +5,13 @@ import { Karla } from 'next/font/google'
 // โหลดฟอนต์ Karla
 const karla = Karla({
   subsets: ['latin'],
-  weight: ['400', '500', '800'], // น้ำหนักฟอนต์ที่ต้องใช้
-  variable: '--font-karla',      // ตัวแปร CSS สำหรับ Tailwind
-})
+  weight: ['400', '500', '800'],
+  variable: '--font-karla',
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={karla.className}>
+    <main className={karla.variable}> {/* ผูก CSS variable */}
       <Component {...pageProps} />
     </main>
   )
