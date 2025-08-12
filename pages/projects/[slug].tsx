@@ -45,13 +45,13 @@ export default function ProjectDetail() {
         <Navbar />
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 py-[100px] text-[#6E412C]">
+      <div className="max-w-5xl mx-auto px-4 py-[70px] md:py-[100px] text-[#6E412C]">
         <div className="mb-4">
           <BackButton fallback="/projects" />
         </div>
 
         {/* ชื่อโปรเจกต์ */}
-        <h1 className="text-2xl text-center md:text-3xl font-bold italic text-[#E996B2] mb-6">
+        <h1 className="text-xl text-center md:text-3xl font-bold italic text-[#E996B2] mb-6">
           {title}
         </h1>
 
@@ -72,13 +72,13 @@ export default function ProjectDetail() {
         </div>
 
         {/* คำอธิบาย แสดงครั้งเดียวใต้รูป */}
-        <p className="mt-6 text-[20px] leading-relaxed text-center">{description}</p>
+        <p className="mt-6 md:text-[20px] leading-relaxed text-center">{description}</p>
 
         <hr className="my-6 border-[#A98177]" />
 
         <div className="grid md:grid-cols-3 gap-6">
           {/* คอลัมน์ซ้าย: รายละเอียด */}
-          <div className="md:col-span-2 space-y-6 text-[17px]">
+          <div className="md:col-span-2 space-y-6 md:text-[17px]">
             <div>
               <div className="font-bold">Role</div>
               <div>{role}</div>
@@ -132,9 +132,9 @@ export default function ProjectDetail() {
                   aria-hidden
                   className="absolute left-0 top-0 bottom-0 w-px bg-[#A98177]"
                 />
-                <div className="font-bold text-[17px]">Links</div>
+                <div className="font-bold md:text-[17px]">Links</div>
 
-                <ul className="mt-4 space-y-4 text-[17px]">
+                <ul className="mt-4 space-y-4 md:text-[17px]">
                   {links.map((l) => {
                     const Icon = (l.kind && ICONS[l.kind]) || ExternalIcon;
                     return (

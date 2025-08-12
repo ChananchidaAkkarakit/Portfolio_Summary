@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-[#A4857B] text-white flex justify-center py-3 rounded-b-[90px] overflow-hidden">
-      <div className="flex sm:space-x-3 md:space-x-10 sm:text-base md:text-lg lg:text-xl">
+      <div className="flex space-x-1 md:space-x-10 text-sm md:text-lg lg:text-xl">
         {menuItems.map((item) => {
           const hrefObj = isObjHref(item.href) ? item.href : null;
           const hrefString = hrefObj

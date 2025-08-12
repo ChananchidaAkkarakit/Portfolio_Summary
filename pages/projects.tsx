@@ -9,15 +9,15 @@ export default function Projects() {
       <div className="fixed top-0 left-0 w-full z-50">
         <Navbar />
       </div>
-      <main className="max-w-6xl mx-auto px-4 py-[100px] text-center">
+      <main className="max-w-6xl mx-auto py-[70px] md:py-[100px] text-center">
         {/* Section Heading */}
-        <h1 className="text-4xl font-bold italic text-[#E996B2]">
+        <h1 className="text-2xl md:text-4xl font-bold italic text-[#E996B2] ">
             Projects & Experience
         </h1>
 
-        <ul className="mt-5 ">
+        <ul className="mt-0">
           {projects.map((p) => (
-            <li key={p.slug} className="py-6 border-t border-[#A4857B] first:border-t-0">
+            <li key={p.slug} className="py-3 mx-3 md:py-6 border-t border-[#A4857B] first:border-t-0">
               <ProjectCard
                 slug={p.slug}
                 title={p.title}

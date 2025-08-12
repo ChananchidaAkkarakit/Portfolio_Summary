@@ -30,7 +30,7 @@ export type Project = {
 
 export const projects: Project[] = [
     {
-        slug: "smart-locker",
+        slug: "locker",
         title: "A work submission tracking and reporting system (2025)",
         description:
             "A system for students to submit documents via smart lockers by scanning QR codes with a mobile app (Flutter). Admins and professors manage locker slots and monitor real-time status through a web dashboard (React). Raspberry Pi handles physical control and sensor feedback using MQTT and distance sensors.",
