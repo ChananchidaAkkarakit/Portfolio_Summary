@@ -73,7 +73,7 @@ export default function Home() {
         <Navbar />
       </div>
       {/* จาก 2 คอลัมน์ ปรับเป็น 3 คอลัมน์ในจอใหญ่ */}
-      <section id="hero" className="min-h-screen snap-start max-w-7xl mx-auto px-5 py-[100px] grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <section id="hero" className="min-h-screen snap-start max-w-7xl mx-auto px-5 py-[100px] grid lg:grid-cols-3 gap-8 items-start">
 
         {/* ข้อความกินพื้นที่ 2 คอลัมน์ */}
         <div className="lg:col-span-2">
@@ -125,89 +125,115 @@ export default function Home() {
 
       <section
         id="student-id"
-        className="min-h-screen snap-start max-w-7xl mx-auto px-5 py-[100px] grid lg:grid-cols-3 gap-8 items-start"
+        className="min-h-screen snap-start max-w-7xl mx-auto px-5 py-[100px] grid lg:grid-cols-3 gap-8 "
       >
         {/* เกท (ถ้าใช้ JS observer) */}
-        <div id="gate-student" className="col-span-3 h-px w-full" aria-hidden="true" />
+        <div id="gate-student" className="lg:col-span-3 h-px w-full" aria-hidden="true" />
 
-        {/* การ์ดกินคอลัมน์ 1–2 */}
-        <div className=" lg:col-span-2 lg:w-[620px] lg:h-[360px] bg-[#FFE0E7] rounded-[30px] shadow-lg p-8 self-start">
-          {/* แถบหัวการ์ดพาดเต็มขอบ (ใช้ -mx/-mt ตัด padding ออก) */}
-          <div className="-mx-8 -mt-8 px-8 py-3 bg-[#E996B2] rounded-t-[30px] 
-                  text-[35px] font-Light text-white ">
+        {/* การ์ด Student ID */}
+        <div className="lg:col-span-2 bg-[#FFE0E7] rounded-[30px] shadow-lg p-8  mx-auto md:max-w-none md:mx-0 md:w-[620px] md:h-[360px]">
+
+          {/* แถบหัวการ์ด */}
+          <div className="-mx-8 -mt-8 px-8 py-3 bg-[#E996B2] rounded-t-[30px] text-[23px] md:text-[35px] text-white text-center md:text-left">
             Student ID Card
           </div>
 
           {/* รูป + รายละเอียด */}
-          <div className="mt-10 grid grid-cols-[160px_1fr] gap-6 items-center ">
-            {/* รูปซ้าย */}
-            <div className="p-1 bg-white shadow-sm ">
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-[160px_1fr] gap-6 items-center">
+            {/* รูป */}
+            <div className="p-1 bg-white shadow-sm mx-auto md:mx-0">
               <Image
-                src={PhotoID}           // หรือ "/images/profile.png"
+                src={PhotoID}
                 alt="Student photo"
                 width={220}
-                height={280}            // อัตราส่วน 3:4
-                className=" object-cover"
+                height={280}
+                className="object-cover w-[140px] h-auto md:w-[220px]"
               />
             </div>
 
-            {/* รายละเอียดขวา */}
-            <div className="text-[#5b4a47]">
-              <div className="flex items-baseline gap-2 border-b border-[#caa8b0] text-[20px] py-1">
-                <span className="font-regular  tracking-wide">NAME :</span>
-                <span>Chananchida Akkarakit</span>
-              </div>
-              <div className="flex items-baseline gap-2 border-b border-[#caa8b0] text-[20px] py-1">
-                <span className="font-regular tracking-wide">NICKNAME :</span>
-                <span>Baifern</span>
-              </div>
-              <div className="flex items-baseline gap-2 border-b border-[#caa8b0] text-[20px] py-1">
-                <span className="font-regular tracking-wide">BIRTH :</span>
-                <span>2004-01-03</span>
-              </div>
-              <div className="flex items-baseline gap-2 border-b border-[#caa8b0] text-[20px] py-1">
-                <span className="font-regular tracking-wide">FACULTY :</span>
-                <span>Engineering</span>
-              </div>
-              <div className="flex items-baseline gap-2 border-b border-[#caa8b0] text-[20px] py-1">
-                <span className="font-regular tracking-wide">MAJOR :</span>
-                <span>Computer Engineering</span>
-              </div>
+            {/* รายละเอียด */}
+            <div className="text-[#5b4a47] text-[15px] md:text-md text-center md:text-left">
+              {[
+                ["NAME :", "Chananchida Akkarakit"],
+                ["NICKNAME :", "Baifern"],
+                ["BIRTH :", "2004-01-03"],
+                ["FACULTY :", "Engineering"],
+                ["MAJOR :", "Computer Engineering"],
+              ].map(([label, value]) => (
+                <div
+                  key={label}
+                  className="flex justify-center md:justify-start items-baseline gap-2 border-b border-[#caa8b0] text-[16px] md:text-[20px] py-1"
+                >
+                  <span className="tracking-wide">{label}</span>
+                  <span>{value}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-        {/* ✅ ปิดการ์ดให้เรียบร้อย */}
 
-        {/* คอลัมน์ขวา = โฟลเดอร์ */}
-        <div className="lg:col-start-3 lg:col-span-1  flex-col items-center lg:items-start gap-2 self-start pt-4 hidden md:flex md:justify-center">
-          <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-3">
-            <FolderIcon width={130} height={130} className="text-[#9AB0C5] block" />
-            <span className="font-karla text-2xl text-[#8A6F64]">Resume.pdf</span>
+        {/* Resume ฝั่งขวา: แสดงเฉพาะ lg+ (ซ่อนบน md) */}
+        <div className="hidden md:mr-10 lg:flex lg:col-start-3 lg:col-span-1 flex-col items-center gap-6 self-start pt-4 lg:justify-center">
+          <a
+            href="/Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col items-center gap-3"
+          >
+            <FolderIcon width={90} height={90} className="text-[#9AB0C5]" />
+            <span className="font-karla text-xl text-[#8A6F64]">Resume_Thai.pdf</span>
+          </a>
+          <a
+            href="/Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col items-center gap-3"
+          >
+            <FolderIcon width={90} height={90} className="text-[#9AB0C5]" />
+            <span className="font-karla text-xl text-[#8A6F64]">Resume_English.pdf</span>
           </a>
         </div>
-        {/* แถบหัวข้อเต็มแถว แต่ไม่ล้นขอบคอนเทนเนอร์ */}
-        <div className="col-span-full mt-10">
-          <div className="w-full h-[150px] rounded-[24px] border-2 border-[#E996B2] bg-white text-[#E996B2] px-5 py-4 shadow-md">
-            <h3 className="font-karla font-semi leading-tight text-[20px] font-bold md:text-[25px]">
-              Interests
-            </h3>
-            <p className="leading-relaxed font-karla text-lg md:text-[20px] text-justify text-[#A98177] indent-10">
-             I'm interested in digital solution development, which spans from UX/UI design and building websites and applications, to leveraging in-depth data analysis with Power BI, implementing AI, and utilizing cloud technology for infrastructure.
-            </p>
-          </div>
-          <div className="col-start-2  flex-col items-center gap-2 self-start pt-4 flex justify-center mb-5 md:hidden">
-            <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-3">
-              <FolderIcon width={130} height={130} className="text-[#9AB0C5] block" />
-              <span className="font-karla text-2xl text-[#8A6F64]">Resume.pdf</span>
-            </a>
+
+        {/* Interests Desktop */}
+        <div className="hidden md:mr-10 mr-10 lg:block lg:col-span-3 w-full rounded-[24px] border-2 border-[#E996B2] bg-white text-[#E996B2] px-5 py-4 shadow-md">
+          <h3 className="font-karla text-[20px] md:text-[25px] font-bold">Interests</h3>
+          <p className="leading-relaxed font-karla text-lg md:text-[20px] text-justify text-[#A98177] indent-10">
+            I'm interested in digital solution development, which spans from UX/UI design and building websites and applications, to leveraging in-depth data analysis with Power BI, implementing AI, and utilizing cloud technology for infrastructure.
+          </p>
+        </div>
+
+        {/* Interests + Resume: แสดงสำหรับ <lg (รวม md ด้วย) */}
+        <div className="col-span-full mt-10 lg:hidden">
+          <div className="grid grid-cols-[1fr_auto] gap-4 items-start">
+            {/* Interests */}
+            <div className="w-full rounded-[24px] border-2 border-[#E996B2] bg-white text-[#E996B2] px-5 py-4 shadow-md">
+              <h3 className="font-karla text-[20px] md:text-[22px] font-bold">Interests</h3>
+              <p className="leading-relaxed font-karla text-base md:text-[18px] text-justify text-[#A98177] indent-10">
+                I'm interested in digital solution development, which spans from UX/UI design and building websites and applications, to leveraging in-depth data analysis with Power BI, implementing AI, and utilizing cloud technology for infrastructure.
+              </p>
+            </div>
+
+            {/* Resume (อยู่ข้าง Interests) */}
+            <div className="flex flex-col items-center gap-1">
+              <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
+                <FolderIcon width={60} height={60} className="text-[#9AB0C5]" />
+                <span className="font-karla text-[14px] md:text-[15px] text-[#8A6F64] text-center">Resume_Thai.pdf</span>
+              </a>
+              <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
+                <FolderIcon width={60} height={60} className="text-[#9AB0C5]" />
+                <span className="font-karla text-[14px] md:text-[15px] text-[#8A6F64] text-center">Resume_English.pdf</span>
+              </a>
+            </div>
           </div>
         </div>
-        {/* ...ใน section#student-id ด้านล่างสุดของ content */}
-        <div id="gate-student-bottom" className=" h-[1px]" aria-hidden="true" />
+
+        {/* Gate ด้านล่าง */}
+        <div id="gate-student-bottom" className="h-[1px]" aria-hidden="true" />
       </section>
+
       <section
         id="contact"
-        className="h-screen snap-start max-w-7xl mx-auto px-2 py-[80px] items-start"
+        className="h-screen snap-start max-w-7xl mx-auto px-10 py-[80px] items-start"
       >
         <div id="gate-contact-top" aria-hidden="true" />
         <main className="mx-auto py-5">
