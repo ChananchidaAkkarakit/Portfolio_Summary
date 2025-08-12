@@ -16,7 +16,6 @@ export default function Home() {
     const hero = document.getElementById("hero");
     const student = document.getElementById("student-id");
     const contact = document.getElementById("contact");
-
     const gateHero = document.getElementById("gate-hero");
     const gateStudentBottom = document.getElementById("gate-student-bottom");
 
@@ -74,7 +73,7 @@ export default function Home() {
         <Navbar />
       </div>
       {/* จาก 2 คอลัมน์ ปรับเป็น 3 คอลัมน์ในจอใหญ่ */}
-      <section id="hero" className="min-h-screen  snap-start max-w-7xl mx-auto px-5 py-[100px] grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <section id="hero" className="min-h-screen snap-start max-w-7xl mx-auto px-5 py-[100px] grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
 
         {/* ข้อความกินพื้นที่ 2 คอลัมน์ */}
         <div className="lg:col-span-2">
@@ -188,10 +187,13 @@ export default function Home() {
         </div>
         {/* แถบหัวข้อเต็มแถว แต่ไม่ล้นขอบคอนเทนเนอร์ */}
         <div className="col-span-full mt-10">
-          <div className="w-full h-[150px] rounded-[24px] bg-[#E996B2] text-white px-6 py-6 shadow-md">
-            <h3 className="font-karla font-semi leading-tight text-[20px] md:text-[25px]">
-              My Passion
+          <div className="w-full h-[150px] rounded-[24px] border-2 border-[#E996B2] bg-white text-[#E996B2] px-5 py-4 shadow-md">
+            <h3 className="font-karla font-semi leading-tight text-[20px] font-bold md:text-[25px]">
+              Interests
             </h3>
+            <p className="leading-relaxed font-karla text-lg md:text-[20px] text-justify text-[#A98177] indent-10">
+             I'm interested in digital solution development, which spans from UX/UI design and building websites and applications, to leveraging in-depth data analysis with Power BI, implementing AI, and utilizing cloud technology for infrastructure.
+            </p>
           </div>
           <div className="col-start-2  flex-col items-center gap-2 self-start pt-4 flex justify-center mb-5 md:hidden">
             <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-3">

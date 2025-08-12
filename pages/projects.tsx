@@ -1,29 +1,35 @@
+// pages/Projects.tsx
 import Navbar from "../components/Navbar";
 import ProjectCard from "../components/ProjectCard";
+import { projects } from "../lib/projects";
 
 export default function Projects() {
-  const projects = [
-    {
-      title: "A work submission tracking and reporting system (2025)",
-      description: "A full-stack smart locker platform with real-time control...",
-      image: "/project1.png",
-      tech: "React, TypeScript, MUI, Flutter, Supabase"
-    },
-    {
-      title: "Portfolio Website Summary (2025)",
-      description: "A personal portfolio website to showcase my engineering projects...",
-      image: "/project2.png",
-      tech: "Next.js, TypeScript, Tailwind CSS, Figma"
-    }
-  ];
-
   return (
     <div>
-      <Navbar />
-      <main className="max-w-5xl mx-auto px-4 py-12 grid gap-6">
-        {projects.map((p, i) => (
-          <ProjectCard key={i} {...p} />
-        ))}
+      <div className="fixed top-0 left-0 w-full z-50">
+        <Navbar />
+      </div>
+      <main className="max-w-6xl mx-auto px-4 py-[100px] text-center">
+        {/* Section Heading */}
+        <h1 className="text-4xl font-bold italic text-[#E996B2]">
+            Projects & Experience
+        </h1>
+
+        <ul className="mt-5 ">
+          {projects.map((p) => (
+            <li key={p.slug} className="py-6 border-t border-[#A4857B] first:border-t-0">
+              <ProjectCard
+                slug={p.slug}
+                title={p.title}
+                description={p.description}
+                role={p.role}
+                tech={p.tech}
+                thumb={p.thumb}
+                
+              />
+            </li>
+          ))}
+        </ul>
       </main>
     </div>
   );
