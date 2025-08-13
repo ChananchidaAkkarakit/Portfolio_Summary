@@ -314,7 +314,7 @@ function TagList({ items, lineColor }: { items: string[]; lineColor: string }) {
       {items.map((t) => (
         <span
           key={t}
-          className="px-3 py-2 rounded-full text-sm bg-amber-100"
+          className="px-3 py-2 rounded-full text-sm bg-[#FFECB3]"
           style={{ border: `1px solid ${lineColor}` }}
         >
           {t}

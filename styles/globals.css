@@ -4,7 +4,7 @@
 
 /* ฟอนต์และพื้นหลังของทั้งเว็บ */
 body {
-  @apply bg-[#FDFCEF] text-gray-800 ; /* indent-8 = เยื้องหัวบรรทัด 32px */
+  @apply bg-[#FFFDF0] text-gray-800 ; /* indent-8 = เยื้องหัวบรรทัด 32px */
   font-family: var(--font-karla), sans-serif;
 }
 

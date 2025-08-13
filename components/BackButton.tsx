@@ -16,16 +16,16 @@ export default function BackButton({ fallback = "/projects" }: { fallback?: stri
   return (
     <button
       onClick={goBack}
-      className="inline-flex items-center gap-1 pl-4 pr-7 py-2 rounded-full
-                 bg-amber-100 border-2 border-amber-100 text-2text-[#6E412C] hover:border-1 hover:border-[#A98177] shadow-sm"
+      className="inline-flex items-center gap-1 p-3 py-2 rounded-full
+                 text-2text-[#6E412C] bg-[#FFE0E7]  hover:border-1 hover:border-[#6E412C] hover:border-2   "
       aria-label="Go back"
     >
       {/* ไอคอนลูกศรซ้าย (inline, ไม่ต้องติดตั้งไลบรารี) */}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-           strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+           strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
         <path d="M15 18l-6-6 6-6" />
       </svg>
-      <span>Back</span>
+      
     </button>
   );
 }

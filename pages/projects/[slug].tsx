@@ -1,4 +1,5 @@
 // pages/projects/[slug].tsx
+import { useRef } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,12 +11,29 @@ import BackButton from "../../components/BackButton";
 import GithubIcon from "@/assets/github.svg";
 import FigmaIcon from "@/assets/figma.svg";
 import ExternalIcon from "@/assets/external-link.svg";
-
+import CanvaIcon from "@/assets/canva.svg";
 const ICONS = {
   github: GithubIcon,
   figma: FigmaIcon,
   demo: ExternalIcon,
+  canva: CanvaIcon
 } as const;
+
+const ArrowLIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+    className={`w-5 h-5 ${props.className ?? ""}`} aria-hidden="true">
+    <path d="M15 18l-6-6 6-6" />
+  </svg>
+);
+
+const ArrowRIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+    className={`w-5 h-5 ${props.className ?? ""}`} aria-hidden="true">
+    <path d="M9 18l6-6-6-6" />
+  </svg>
+);
 
 export default function ProjectDetail() {
   const { query } = useRouter();
@@ -25,7 +43,7 @@ export default function ProjectDetail() {
   const {
     title,
     hero,
-    headerImages = [], // รูปเพิ่มเฉพาะหน้า slug (ถ้ามี)
+    headerImages = [], 
     description,
     role,
     duration,
@@ -35,27 +53,34 @@ export default function ProjectDetail() {
     features,
   } = project;
 
-  // รวมรูปที่อยากโชว์ด้านบนให้เรียง "ข้างๆ กัน"
+
   const images = [hero, ...headerImages];
+
+  const railRef = useRef<HTMLDivElement>(null);
+  const scrollBy = (dir: "left" | "right") => {
+    const el = railRef.current;
+    if (!el) return;
+    const amount = Math.min(el.clientWidth * 0.9, 600);
+    el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
+  };
 
   return (
     <>
-      {/* Navbar ลอยบนสุด */}
+
       <div className="fixed top-0 left-0 w-full z-50">
         <Navbar />
       </div>
 
       <div className="max-w-5xl mx-auto px-4 py-[70px] md:py-[100px] text-[#6E412C]">
-        <div className="mb-4">
-          <BackButton fallback="/projects" />
+        <div className="relative flex items-center justify-center mb-6">
+          <div className="absolute left-0">
+            <BackButton fallback="/projects" />
+          </div>
+          <h1 className="text-xl md:text-3xl font-bold italic text-[#E996B2]">
+            {title}
+          </h1>
         </div>
 
-        {/* ชื่อโปรเจกต์ */}
-        <h1 className="text-xl text-center md:text-3xl font-bold italic text-[#E996B2] mb-6">
-          {title}
-        </h1>
-
-        {/* แกลเลอรีรูป: 1/2/3 คอลัมน์ + จัดกึ่งกลาง + เว้นช่องเท่ากัน */}
         <div className="mt-2 grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 justify-items-center">
           {images.map((src, i) => (
             <div key={`${src}-${i}`} className="w-full max-w-[560px] rounded-2xl bg-white shadow p-3">
@@ -71,13 +96,12 @@ export default function ProjectDetail() {
           ))}
         </div>
 
-        {/* คำอธิบาย แสดงครั้งเดียวใต้รูป */}
         <p className="mt-6 md:text-[20px] leading-relaxed text-center">{description}</p>
 
         <hr className="my-6 border-[#A98177]" />
 
         <div className="grid md:grid-cols-3 gap-6">
-          {/* คอลัมน์ซ้าย: รายละเอียด */}
+
           <div className="md:col-span-2 space-y-6 md:text-[17px]">
             <div>
               <div className="font-bold">Role</div>
@@ -123,11 +147,10 @@ export default function ProjectDetail() {
             )}
           </div>
 
-          {/* คอลัมน์ขวา: Links + เส้นคั่นยาวเท่าลิสต์ */}
           <div className="space-y-3">
             {links && links.length > 0 && (
               <div className="relative pl-5">
-                {/* เส้นคั่นเฉพาะความสูงของลิสต์ */}
+
                 <span
                   aria-hidden
                   className="absolute left-0 top-0 bottom-0 w-px bg-[#A98177]"
@@ -156,8 +179,85 @@ export default function ProjectDetail() {
               </div>
             )}
           </div>
+
         </div>
+
+        {project.gallery && project.gallery.length > 0 && (
+          <section className="mt-10">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-lg md:text-xl font-semibold text-[#6E412C]">
+                More screenshots
+              </h2>
+              {/* <div className="hidden md:flex gap-2">
+                <button
+                  onClick={() => scrollBy("left")}
+                  className="px-3 py-1 rounded-full border border-[#A98177] hover:bg-[#f7efe9]"
+                  aria-label="Scroll left"
+                >
+                  ◀
+                </button>
+                <button
+                  onClick={() => scrollBy("right")}
+                  className="px-3 py-1 rounded-full border border-[#A98177] hover:bg-[#f7efe9]"
+                  aria-label="Scroll right"
+                >
+                  ▶
+                </button>
+              </div> */}
+            </div>
+
+            <div className="relative">
+              <div
+                ref={railRef}
+                className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth
+                   py-2
+                   [scrollbar-width:thin]  // Firefox
+                   [&::-webkit-scrollbar]:h-2
+                   [&::-webkit-scrollbar-thumb]:bg-[#A98177]/60
+                   [&::-webkit-scrollbar-track]:bg-transparent"
+              >
+                {project.gallery.map((src, i) => (
+                  <div key={src + i} className="snap-center shrink-0 w-[300px] sm:w-[400px] md:w-[480px]">
+                    <div className="bg-white rounded-2xl shadow p-3">
+                      <Image
+                        src={src}
+                        alt={`${title} screenshot ${i + 1}`}
+                        width={760}
+                        height={480}
+                        className="w-full h-auto rounded-xl object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                onClick={() => scrollBy("left")}
+                className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2
+             z-10 w-10 h-10 items-center justify-center rounded-full bg-white/80
+             shadow hover:bg-white/95 focus:outline-none focus:ring-2 focus:ring-[#A98177]"
+                aria-label="Scroll left"
+              >
+                <ArrowLIcon />
+              </button>
+
+              <button
+                onClick={() => scrollBy("right")}
+                className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2
+             z-10 w-10 h-10 items-center justify-center rounded-full bg-white/80
+             shadow hover:bg-white/95 focus:outline-none focus:ring-2 focus:ring-[#A98177]"
+                aria-label="Scroll right"
+              >
+                <ArrowRIcon />
+              </button>
+
+            </div>
+          </section>
+        )}
+
       </div>
     </>
+
   );
 }
