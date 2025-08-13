@@ -48,8 +48,12 @@ export const projects: Project[] = [
             ui: "Figma (Prototype)",
         },
         links: [
-            { label: "GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/Admin_Dashboard", kind: "github" },
-            { label: "Figma Design", href: "https://www.figma.com/proto/ILoNAJAHd3SKVONGCceJwK/Untitled?node-id=4-2&t=1cSPxLIvC2JffERx-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A12", kind: "figma" },
+            { label: "Admin GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/Admin_Dashboard", kind: "github" },
+            
+            // { label: "Live Demo", href: "https://your-demo.site", kind: "demo" },
+            { label: "User GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/Mobile_App_FinalProject", kind: "github" },
+            { label: "Admin Figma Design", href: "https://www.figma.com/proto/ILoNAJAHd3SKVONGCceJwK/Admin_Dashboard?node-id=4-2&t=Rd0sjbWoglJANiyB-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A12", kind: "figma" },
+            { label: "User Figma Design (Flow 1 & 2)", href: "https://www.figma.com/proto/M2Np1ouTmaPGKkw0Ae3v0F/Users_Mobile?node-id=102-165&t=yD0zsxj5ifMRlWQ0-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2&show-proto-sidebar=1", kind: "figma" },
             // { label: "Live Demo", href: "https://your-demo.site", kind: "demo" },
         ],
         features: [
@@ -62,7 +66,7 @@ export const projects: Project[] = [
     },
     {
         slug: "portfolio",
-        title: "Portfolio Website Summary (2025)",
+        title: "Personal Portfolio Website (2025)",
         description:
             "A responsive portfolio website designed to present my engineering projects, resume, and UI/UX designs in a clean, professional layout. Built with a focus on clear structure, visual hierarchy, and accessibility across devices.",
         role: "Full‑stack Developer (in progress) & UI Designer",
@@ -79,7 +83,7 @@ export const projects: Project[] = [
         },
         links: [
             { label: "GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/portfolio", kind: "github" },
-            { label: "Figma Design", href: "https://www.figma.com/design/3U3zecXg7xUU1GjFKVXHM4/Untitled?node-id=16-244&t=B7Js87se2erpLC5h-0", kind: "figma" },
+            { label: "Figma Design", href: "https://www.figma.com/proto/3U3zecXg7xUU1GjFKVXHM4/Portfolio-Website?node-id=1-2&t=kcNloNHulj4KG6Yk-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2", kind: "figma" },
             // { label: "Live Demo", href: "https://your-demo.site", kind: "demo" },
         ],
         features: [

@@ -169,7 +169,7 @@ export default function ProjectDetail() {
                         >
                           <Icon className="w-8 h-8 text-[#E996B2] shrink-0 " />
                           <span className="underline-offset-2 group-hover:underline">
-                            [{l.label}]
+                            {l.label}
                           </span>
                         </Link>
                       </li>

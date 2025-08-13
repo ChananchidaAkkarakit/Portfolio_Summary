@@ -175,7 +175,7 @@ export default function Home() {
         {/* Resume ฝั่งขวา: แสดงเฉพาะ lg+ (ซ่อนบน md) */}
         <div className="hidden md:mr-20 lg:flex lg:col-start-3 lg:col-span-1 flex-col items-center gap-6 self-start pt-4 lg:justify-center">
           <a
-            href="/Resume_Thai_Chananchida.pdf"
+            href="/Resume_Chananchida_Thai.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex flex-col items-center gap-3"
@@ -184,7 +184,7 @@ export default function Home() {
             <span className="font-karla text-xl text-[#8A6F64]">Resume_Thai.pdf</span>
           </a>
           <a
-            href="/Resume_English_Chananchida.pdf"
+            href="/Resume_Chananchida_English.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex flex-col items-center gap-3"
@@ -216,11 +216,11 @@ export default function Home() {
 
             {/* Resume — xs: อยู่ใต้ Interests (เรียงแนวนอน), sm+: อยู่ขวา */}
             <div className="flex flex-row justify-center gap-10 mt-4 sm:flex-col sm:items-center sm:gap-1 sm:mt-0">
-              <a href="/Resume_Thai_Chananchida.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
+              <a href="/Resume_Chananchida_Thai.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
                 <FolderIcon className="text-[#9AB0C5]" width={56} height={56} />
                 <span className="font-karla text-[15px] text-[#8A6F64] text-center">Resume_Thai.pdf</span>
               </a>
-              <a href="/Resume_English_Chananchida.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
+              <a href="/Resume_Chananchida_English.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
                 <FolderIcon className="text-[#9AB0C5]" width={56} height={56} />
                 <span className="font-karla text-[15px] text-[#8A6F64] text-center">Resume_English.pdf</span>
               </a>
