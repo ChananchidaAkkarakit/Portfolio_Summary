@@ -49,7 +49,7 @@ const aboutData = {
         "Raspberry Pi + VL53L0X + MQTT, Node-RED",
         "Role-based control, real-time status, submission logs",
       ],
-      link: { label: "Project detail", href: "/projects/smart-locker" },
+      link: { label: "Project detail", href: "/projects/locker" },
     },
     {
       title: "Portfolio Website Summary",
@@ -62,6 +62,7 @@ const aboutData = {
       link: { label: "Project detail", href: "/projects/portfolio" },
     },
   ] as TimelineItem[],
+  
   activities: [
   {
     title:
@@ -104,10 +105,14 @@ const aboutData = {
   interests: ["Website & Mobile Application", "Power BI", "UX/UI Design", "AI Development", "Cloud Computing Technology"],
   education: [
     {
-      title: "B.Eng. Computer Engineering",
-      org: "RMUTT",
+      title: "B.Eng. Computer Engineering, Rajamangala University of Technology Thanyaburi",
       period: "2022 – Present",
-      details: ["Focus: Frontend, UI/UX, Backend"],
+      details: ["GPAX: 3.81", "Achievements : Academic Year 1/2023 (GPA 4.00)"],
+    },
+        {
+      title: "Science and Mathematics Program, Uthaiwitthayakhom School",
+      period: "2022 – Present",
+      details: ["GPAX: 3.58"],
     },
   ] as TimelineItem[],
   languages: [],
@@ -149,7 +154,7 @@ export default function AboutPage() {
         <p className="mt-6 text-[17px] leading-relaxed text-start indent-10">{aboutData.intro}</p>
 
         {/* Skills (สองฝั่ง: Tech ซ้าย / Soft ขวา) */}
-        <div className="mt-2 grid md:grid-cols-2 gap-20 items-start">
+        <div className="mt-2 grid md:grid-cols-2 gap-5 md:gap-20 items-start">
           <Section title="Technical Skills" noDivider>
             <div className="grid grid-cols-1 gap-4">
               {aboutData.skillsTech.map((cat) => (
@@ -177,7 +182,7 @@ export default function AboutPage() {
         <Divider color={c.line} />
 
         {/* Projects + Education (2-column) */}
-        <div className="grid md:grid-cols-2 gap-20">
+        <div className="grid md:grid-cols-2 gap-5 md:gap-20">
           <Section title="Projects" noDivider>
             <Timeline items={aboutData.Projects} lineColor={c.line} />
           </Section>
@@ -188,7 +193,7 @@ export default function AboutPage() {
         <Divider color={c.line} />
 
         {/* Activities + Certificates */}
-        <div className="grid  gap-10">
+        <div className="grid gap-5">
           <Section title="Activities" noDivider>
             <Timeline items={aboutData.activities} lineColor={c.line} />
           </Section>
@@ -221,7 +226,7 @@ export default function AboutPage() {
         <Divider color={c.line} />
 
         {/* Interests + Languages + Awards */}
-        <div className="grid gap-10">
+        <div className="grid gap-5">
           <Section title="Interests" noDivider>
             <TagList items={aboutData.interests} lineColor={c.line} />
           </Section>
