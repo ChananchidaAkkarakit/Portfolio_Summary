@@ -131,7 +131,7 @@ export default function Home() {
         <div id="gate-student" className="lg:col-span-3 h-px w-full" aria-hidden="true" />
 
         {/* การ์ด Student ID */}
-        <div className="lg:col-span-2 bg-[#FFE0E7] rounded-[30px] shadow-lg p-8  mx-auto md:max-w-none md:mx-0 md:w-[620px] md:h-[360px]">
+        <div className="lg:col-span-2 bg-[#FFE0E7] rounded-[30px] shadow-lg p-8 mx-auto md:max-w-none md:mx-0 md:w-[620px] md:h-[360px]">
 
           {/* แถบหัวการ์ด */}
           <div className="-mx-8 -mt-8 px-8 py-3 bg-[#E996B2] rounded-t-[30px] text-[23px] md:text-[35px] text-white text-center md:text-left">
@@ -173,7 +173,7 @@ export default function Home() {
         </div>
 
         {/* Resume ฝั่งขวา: แสดงเฉพาะ lg+ (ซ่อนบน md) */}
-        <div className="hidden md:mr-10 lg:flex lg:col-start-3 lg:col-span-1 flex-col items-center gap-6 self-start pt-4 lg:justify-center">
+        <div className="hidden md:mr-20 lg:flex lg:col-start-3 lg:col-span-1 flex-col items-center gap-6 self-start pt-4 lg:justify-center">
           <a
             href="/Resume_Thai_Chananchida.pdf"
             target="_blank"

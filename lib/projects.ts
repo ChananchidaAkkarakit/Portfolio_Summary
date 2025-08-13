@@ -48,7 +48,7 @@ export const projects: Project[] = [
         },
         links: [
             { label: "GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/Admin_Dashboard", kind: "github" },
-            { label: "Figma Design", href: "https://www.figma.com/design/3U3zecXg7xUU1GjFKVXHM4/Untitled?node-id=16-244&t=B7Js87se2erpLC5h-0", kind: "figma" },
+            { label: "Figma Design", href: "https://www.figma.com/design/ILoNAJAHd3SKVONGCceJwK/Untitled?node-id=0-1&p=f&t=hpGHvQhxTYk2ZBDA-0", kind: "figma" },
             // { label: "Live Demo", href: "https://your-demo.site", kind: "demo" },
         ],
         features: [
@@ -78,7 +78,7 @@ export const projects: Project[] = [
         },
         links: [
             { label: "GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/portfolio", kind: "github" },
-            { label: "Figma Design", href: "https://www.figma.com/design/ILoNAJAHd3SKVONGCceJwK/Untitled?node-id=0-1&p=f&t=hpGHvQhxTYk2ZBDA-0", kind: "figma" },
+            { label: "Figma Design", href: "https://www.figma.com/design/3U3zecXg7xUU1GjFKVXHM4/Untitled?node-id=16-244&t=B7Js87se2erpLC5h-0", kind: "figma" },
             // { label: "Live Demo", href: "https://your-demo.site", kind: "demo" },
         ],
         features: [

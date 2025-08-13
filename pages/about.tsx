@@ -53,6 +53,7 @@ const aboutData = {
     },
     {
       title: "Portfolio Website Summary",
+      role: "Full-stack Developer",
       org: "Personal Project",
       period: "Aug 2025 – Present",
       details: [
@@ -62,7 +63,6 @@ const aboutData = {
       link: { label: "Project detail", href: "/projects/portfolio" },
     },
   ] as TimelineItem[],
-  
   activities: [
   {
     title:
@@ -102,16 +102,18 @@ const aboutData = {
     { name: "Responsive Web Design", issuer: "freeCodeCamp", date: "2024" },
     { name: "Flutter Foundations", issuer: "Udemy", date: "2024" },
 ] as Certificate[],
-  interests: ["Website & Mobile Application", "Power BI", "UX/UI Design", "AI Development", "Cloud Computing Technology"],
+  interests: ["Website & Mobile Application Development", "UI/UX Design", "Backend Development",' Power BI (Data Analytics)', "AI/ML Development", 'Computer Networking', 'Cloud Computing Technology'],
   education: [
     {
-      title: "B.Eng. Computer Engineering, Rajamangala University of Technology Thanyaburi",
+      title: "Rajamangala University of Technology Thanyaburi",
+      org: "B.Eng. Computer Engineering",
       period: "2022 – Present",
       details: ["GPAX: 3.81", "Achievements : Academic Year 1/2023 (GPA 4.00)"],
     },
         {
-      title: "Science and Mathematics Program, Uthaiwitthayakhom School",
-      period: "2022 – Present",
+      title: "Uthaiwitthayakhom School",
+      org: "Science and Mathematics Program", 
+      period: "2019 – 2022",
       details: ["GPAX: 3.58"],
     },
   ] as TimelineItem[],
@@ -226,7 +228,7 @@ export default function AboutPage() {
         <Divider color={c.line} />
 
         {/* Interests + Languages + Awards */}
-        <div className="grid gap-5">
+        <div className="grid gap-5 " >
           <Section title="Interests" noDivider>
             <TagList items={aboutData.interests} lineColor={c.line} />
           </Section>
@@ -308,11 +310,11 @@ function Timeline({ items, lineColor }: { items: TimelineItem[]; lineColor: stri
 
 function TagList({ items, lineColor }: { items: string[]; lineColor: string }) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-3">
       {items.map((t) => (
         <span
           key={t}
-          className="px-3 py-1 rounded-full text-sm bg-amber-100"
+          className="px-3 py-2 rounded-full text-sm bg-amber-100"
           style={{ border: `1px solid ${lineColor}` }}
         >
           {t}
