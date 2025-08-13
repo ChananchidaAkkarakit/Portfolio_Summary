@@ -78,7 +78,7 @@ export default function Home() {
         {/* ข้อความกินพื้นที่ 2 คอลัมน์ */}
         <div className="lg:col-span-2">
           <h1 className="font-karla text-[20px] md:text-[40px] font-bold text-[#E996B2] mb-5 text-center">
-            Hello,<br /> I’m Chananchida Akkarakit
+            HI,<br /> I’m Chananchida Akkarakit
           </h1>
 
           {/* รูปใน mobile */}
