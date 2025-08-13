@@ -9,7 +9,7 @@ export default function ProjectCard({ slug, title, description, role, tech, thum
   return (
 <Link
   href={`/projects/${slug}`}
-  className="group flex flex-col sm:flex-row items-start gap-5 rounded-2xl p-3 transition hover:bg-amber-50"
+  className="group flex flex-col md:flex-row items-center md:items-start gap-5 rounded-2xl p-3 transition hover:bg-amber-50"
 >
   <div className="shrink-0 rounded-2xl bg-white shadow-md p-3">
     <div className="rounded-xl overflow-hidden">

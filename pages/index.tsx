@@ -175,7 +175,7 @@ export default function Home() {
         {/* Resume ฝั่งขวา: แสดงเฉพาะ lg+ (ซ่อนบน md) */}
         <div className="hidden md:mr-10 lg:flex lg:col-start-3 lg:col-span-1 flex-col items-center gap-6 self-start pt-4 lg:justify-center">
           <a
-            href="/Resume.pdf"
+            href="/Resume_Thai_Chananchida.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex flex-col items-center gap-3"
@@ -184,7 +184,7 @@ export default function Home() {
             <span className="font-karla text-xl text-[#8A6F64]">Resume_Thai.pdf</span>
           </a>
           <a
-            href="/Resume.pdf"
+            href="/Resume_English_Chananchida.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex flex-col items-center gap-3"
@@ -202,32 +202,32 @@ export default function Home() {
           </p>
         </div>
 
-{/* Interests + Resume: แสดงสำหรับ <lg */}
-<div className="col-span-full mt-10 lg:hidden">
-  {/* xs: 1 คอลัมน์ (โฟลเดอร์อยู่ใต้) | sm+: 2 คอลัมน์ (อยู่ข้างกัน) */}
-  <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-4 items-start">
-    {/* Interests */}
-    <div className="w-full rounded-[24px] border-2 border-[#E996B2] bg-white text-[#E996B2] px-5 py-4 shadow-md">
-      <h3 className="font-karla text-[20px] sm:text-[22px] font-bold">Interests</h3>
-      <p className="leading-relaxed font-karla text-base sm:text-[18px] text-left sm:text-justify text-[#A98177] indent-0 sm:indent-10">
-        I'm interested in digital solution development, which spans from UX/UI design and building websites and applications, to leveraging in-depth data analysis with Power BI, implementing AI, and utilizing cloud technology for infrastructure.
-      </p>
-    </div>
+        {/* Interests + Resume: แสดงสำหรับ <lg */}
+        <div className="col-span-full mt-10 lg:hidden">
+          {/* xs: 1 คอลัมน์ (โฟลเดอร์อยู่ใต้) | sm+: 2 คอลัมน์ (อยู่ข้างกัน) */}
+          <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-4 items-start">
+            {/* Interests */}
+            <div className="w-full rounded-[24px] border-2 border-[#E996B2] bg-white text-[#E996B2] px-5 py-4 shadow-md">
+              <h3 className="font-karla text-[20px] sm:text-[22px] font-bold">Interests</h3>
+              <p className="leading-relaxed font-karla text-base sm:text-[18px] text-left sm:text-justify text-[#A98177] indent-0 sm:indent-10">
+                I'm interested in digital solution development, which spans from UX/UI design and building websites and applications, to leveraging in-depth data analysis with Power BI, implementing AI, and utilizing cloud technology for infrastructure.
+              </p>
+            </div>
 
-{/* Resume — xs: อยู่ใต้ Interests (เรียงแนวนอน), sm+: อยู่ขวา */}
-<div className="flex flex-row justify-center gap-4 mt-4 sm:flex-col sm:items-center sm:gap-1 sm:mt-0">
-  <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
-    <FolderIcon className="text-[#9AB0C5]" width={56} height={56} />
-    <span className="font-karla text-[13px] sm:text-[15px] text-[#8A6F64] text-center">Resume_Thai.pdf</span>
-  </a>
-  <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
-    <FolderIcon className="text-[#9AB0C5]" width={56} height={56} />
-    <span className="font-karla text-[13px] sm:text-[15px] text-[#8A6F64] text-center">Resume_English.pdf</span>
-  </a>
-</div>
+            {/* Resume — xs: อยู่ใต้ Interests (เรียงแนวนอน), sm+: อยู่ขวา */}
+            <div className="flex flex-row justify-center gap-10 mt-4 sm:flex-col sm:items-center sm:gap-1 sm:mt-0">
+              <a href="/Resume_Thai_Chananchida.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
+                <FolderIcon className="text-[#9AB0C5]" width={56} height={56} />
+                <span className="font-karla text-[15px] text-[#8A6F64] text-center">Resume_Thai.pdf</span>
+              </a>
+              <a href="/Resume_English_Chananchida.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
+                <FolderIcon className="text-[#9AB0C5]" width={56} height={56} />
+                <span className="font-karla text-[15px] text-[#8A6F64] text-center">Resume_English.pdf</span>
+              </a>
+            </div>
 
-  </div>
-</div>
+          </div>
+        </div>
 
 
         {/* Gate ด้านล่าง */}
