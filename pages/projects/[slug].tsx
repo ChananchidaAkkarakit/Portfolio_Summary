@@ -255,10 +255,10 @@ export default function ProjectDetail() {
             {/* Prev */}
             <button
               onClick={prevImage}
-              className="absolute left-0 top-1/2 -translate-y-1/2 p-3 bg-white/85 rounded-full shadow hover:bg-white"
+              className="absolute -left-6 top-1/2 -translate-y-1/2 p-3 bg-white/85 rounded-full shadow hover:bg-white"
               aria-label="Previous"
             >
-              <ArrowLIcon className="w-6 h-6" />
+              <ArrowLIcon className="w-6 h-6 text-[#A98177]" />
             </button>
 
             {/* รูปใหญ่ */}
@@ -271,16 +271,16 @@ export default function ProjectDetail() {
             {/* Next */}
             <button
               onClick={nextImage}
-              className="absolute right-0 top-1/2 -translate-y-1/2 p-3 bg-white/85 rounded-full shadow hover:bg-white"
+              className="absolute -right-6 top-1/2 -translate-y-1/2 p-3 bg-white rounded-full shadow hover:bg-white"
               aria-label="Next"
             >
-              <ArrowRIcon className="w-6 h-6" />
+              <ArrowRIcon className="w-6 h-6 text-[#A98177]" />
             </button>
 
             {/* Close */}
             <button
               onClick={closeImage}
-              className="absolute -top-4 -right-4 w-10 h-10 bg-white/90 rounded-full shadow flex items-center justify-center hover:bg-white"
+              className="absolute -top-4 -right-4 w-10 h-10 text-[#6E412C] bg-white/90 rounded-full shadow flex items-center justify-center hover:bg-white"
               aria-label="Close"
             >
               X
