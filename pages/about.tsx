@@ -108,7 +108,7 @@ const aboutData = {
       title: "Rajamangala University of Technology Thanyaburi",
       org: "B.Eng. Computer Engineering",
       period: "2022 – Present",
-      details: ["GPAX: 3.81", "Achievements : Academic Year 1/2023 (GPA 4.00)"],
+      details: ["Expected Graduation: March 2026 | GPAX: 3.81", "Achievements : Academic Year 1/2023 (GPA 4.00)"],
     },
         {
       title: "Uthaiwitthayakhom School",

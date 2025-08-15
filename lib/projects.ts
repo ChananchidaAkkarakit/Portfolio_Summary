@@ -53,7 +53,7 @@ export const projects: Project[] = [
             // { label: "Live Demo", href: "https://your-demo.site", kind: "demo" },
             { label: "User GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/Mobile_App_FinalProject", kind: "github" },
             { label: "Admin Figma Design", href: "https://www.figma.com/proto/ILoNAJAHd3SKVONGCceJwK/Admin_Dashboard?node-id=4-2&t=Rd0sjbWoglJANiyB-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A12", kind: "figma" },
-            { label: "User Figma Design (Flow 1 & 2)", href: "https://www.figma.com/proto/M2Np1ouTmaPGKkw0Ae3v0F/Users_Mobile?node-id=102-165&t=yD0zsxj5ifMRlWQ0-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2&show-proto-sidebar=1", kind: "figma" },
+            { label: "User Figma Design (Flow 1 & 2)", href: "https://www.figma.com/proto/M2Np1ouTmaPGKkw0Ae3v0F/Users_Mobile?node-id=2-2&t=9AmLzCEr4bgIP9Mn-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2&show-proto-sidebar=1", kind: "figma" },
             // { label: "Live Demo", href: "https://your-demo.site", kind: "demo" },
         ],
         features: [
