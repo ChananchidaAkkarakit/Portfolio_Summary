@@ -1,5 +1,5 @@
 // pages/projects/[slug].tsx
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,30 +7,23 @@ import Navbar from "../../components/Navbar";
 import { projects } from "../../lib/projects";
 import BackButton from "../../components/BackButton";
 
-// ไอคอน (ต้องตั้งค่า SVGR ไว้แล้ว)
 import GithubIcon from "@/assets/github.svg";
 import FigmaIcon from "@/assets/figma.svg";
 import ExternalIcon from "@/assets/external-link.svg";
 import CanvaIcon from "@/assets/canva.svg";
-const ICONS = {
-  github: GithubIcon,
-  figma: FigmaIcon,
-  demo: ExternalIcon,
-  canva: CanvaIcon
-} as const;
+const ICONS = { github: GithubIcon, figma: FigmaIcon, demo: ExternalIcon, canva: CanvaIcon } as const;
 
 const ArrowLIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-    className={`w-5 h-5 ${props.className ?? ""}`} aria-hidden="true">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+       strokeLinecap="round" strokeLinejoin="round"
+       className={`w-5 h-5 ${props.className ?? ""}`} aria-hidden="true">
     <path d="M15 18l-6-6 6-6" />
   </svg>
 );
-
 const ArrowRIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-    className={`w-5 h-5 ${props.className ?? ""}`} aria-hidden="true">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+       strokeLinecap="round" strokeLinejoin="round"
+       className={`w-5 h-5 ${props.className ?? ""}`} aria-hidden="true">
     <path d="M9 18l6-6-6-6" />
   </svg>
 );
@@ -43,7 +36,7 @@ export default function ProjectDetail() {
   const {
     title,
     hero,
-    headerImages = [], 
+    headerImages = [],
     description,
     role,
     duration,
@@ -53,6 +46,8 @@ export default function ProjectDetail() {
     features,
   } = project;
 
+  // gallery ที่ไม่เป็น undefined
+  const gallery: string[] = Array.isArray(project.gallery) ? project.gallery : [];
 
   const images = [hero, ...headerImages];
 
@@ -64,9 +59,36 @@ export default function ProjectDetail() {
     el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
   };
 
+  // Overlay state
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const openImage = (i: number) => setSelectedIndex(i);
+  const closeImage = () => setSelectedIndex(null);
+  const prevImage = () =>
+    setSelectedIndex((i) => (i === null ? i : (i - 1 + gallery.length) % gallery.length));
+  const nextImage = () =>
+    setSelectedIndex((i) => (i === null ? i : (i + 1) % gallery.length));
+
+  useEffect(() => {
+    if (selectedIndex !== null) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    const onKey = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      if (e.key === "Escape") closeImage();
+      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "ArrowRight") nextImage();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [selectedIndex, gallery.length]);
+
   return (
     <>
-
       <div className="fixed top-0 left-0 w-full z-50">
         <Navbar />
       </div>
@@ -76,7 +98,7 @@ export default function ProjectDetail() {
           <div className="absolute left-0">
             <BackButton fallback="/projects" />
           </div>
-          <h1 className="text-xl md:text-3xl font-bold italic text-[#E996B2]">
+          <h1 className="text-center mx-10 text-sm md:text-2xl lg:text-3xl font-bold italic text-[#E996B2]">
             {title}
           </h1>
         </div>
@@ -101,27 +123,23 @@ export default function ProjectDetail() {
         <hr className="my-6 border-[#A98177]" />
 
         <div className="grid md:grid-cols-3 gap-6">
-
           <div className="md:col-span-2 space-y-6 md:text-[17px]">
             <div>
               <div className="font-bold">Role</div>
               <div>{role}</div>
             </div>
-
             {duration && (
               <div>
                 <div className="font-bold">Duration</div>
                 <div>{duration}</div>
               </div>
             )}
-
             {team && (
               <div>
                 <div className="font-bold">Team</div>
                 <div>{team}</div>
               </div>
             )}
-
             {tools && (
               <div>
                 <div className="font-bold">Tools</div>
@@ -134,7 +152,6 @@ export default function ProjectDetail() {
                 </div>
               </div>
             )}
-
             {features && features.length > 0 && (
               <div className="pt-2">
                 <div className="font-bold">Key Features</div>
@@ -150,27 +167,16 @@ export default function ProjectDetail() {
           <div className="space-y-3">
             {links && links.length > 0 && (
               <div className="relative pl-5">
-
-                <span
-                  aria-hidden
-                  className="absolute left-0 top-0 bottom-0 w-px bg-[#A98177]"
-                />
+                <span aria-hidden className="absolute left-0 top-0 bottom-0 w-px bg-[#A98177]" />
                 <div className="font-bold md:text-[17px]">Links</div>
-
                 <ul className="mt-4 space-y-4 md:text-[17px]">
                   {links.map((l) => {
                     const Icon = (l.kind && ICONS[l.kind]) || ExternalIcon;
                     return (
                       <li key={l.href}>
-                        <Link
-                          href={l.href}
-                          target="_blank"
-                          className="flex items-center gap-3 group"
-                        >
+                        <Link href={l.href} target="_blank" className="flex items-center gap-3 group">
                           <Icon className="w-8 h-8 text-[#E996B2] shrink-0 " />
-                          <span className="underline-offset-2 group-hover:underline">
-                            {l.label}
-                          </span>
+                          <span className="underline-offset-2 group-hover:underline">{l.label}</span>
                         </Link>
                       </li>
                     );
@@ -179,44 +185,24 @@ export default function ProjectDetail() {
               </div>
             )}
           </div>
-
         </div>
 
-        {project.gallery && project.gallery.length > 0 && (
+        {gallery.length > 0 && (
           <section className="mt-10">
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-lg md:text-xl font-semibold text-[#6E412C]">
-                More screenshots
-              </h2>
-              {/* <div className="hidden md:flex gap-2">
-                <button
-                  onClick={() => scrollBy("left")}
-                  className="px-3 py-1 rounded-full border border-[#A98177] hover:bg-[#f7efe9]"
-                  aria-label="Scroll left"
-                >
-                  ◀
-                </button>
-                <button
-                  onClick={() => scrollBy("right")}
-                  className="px-3 py-1 rounded-full border border-[#A98177] hover:bg-[#f7efe9]"
-                  aria-label="Scroll right"
-                >
-                  ▶
-                </button>
-              </div> */}
+              <h2 className="text-lg md:text-xl font-semibold text-[#6E412C]">More screenshots</h2>
             </div>
 
             <div className="relative">
               <div
                 ref={railRef}
-                className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth
-                   py-2
-                   [scrollbar-width:thin]  // Firefox
+                className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth py-2
+                   [scrollbar-width:thin]
                    [&::-webkit-scrollbar]:h-2
                    [&::-webkit-scrollbar-thumb]:bg-[#A98177]/60
                    [&::-webkit-scrollbar-track]:bg-transparent"
               >
-                {project.gallery.map((src, i) => (
+                {gallery.map((src, i) => (
                   <div key={src + i} className="snap-center shrink-0 w-[300px] sm:w-[400px] md:w-[480px]">
                     <div className="bg-white rounded-2xl shadow p-3">
                       <Image
@@ -224,40 +210,84 @@ export default function ProjectDetail() {
                         alt={`${title} screenshot ${i + 1}`}
                         width={760}
                         height={480}
-                        className="w-full h-auto rounded-xl object-contain"
+                        className="w-full h-auto rounded-xl object-contain cursor-pointer hover:opacity-90 transition"
                         loading="lazy"
+                        onClick={() => openImage(i)}
                       />
                     </div>
                   </div>
                 ))}
               </div>
 
+              {/* ปุ่มเลื่อนแถวรูปเล็ก */}
               <button
                 onClick={() => scrollBy("left")}
                 className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2
-             z-10 w-10 h-10 items-center justify-center rounded-full bg-white/80
-             shadow hover:bg-white/95 focus:outline-none focus:ring-2 focus:ring-[#A98177]"
+                           z-10 w-10 h-10 items-center justify-center rounded-full bg-white/80
+                           shadow hover:bg-white/95 focus:outline-none focus:ring-2 focus:ring-[#A98177]"
                 aria-label="Scroll left"
               >
                 <ArrowLIcon />
               </button>
-
               <button
                 onClick={() => scrollBy("right")}
                 className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2
-             z-10 w-10 h-10 items-center justify-center rounded-full bg-white/80
-             shadow hover:bg-white/95 focus:outline-none focus:ring-2 focus:ring-[#A98177]"
+                           z-10 w-10 h-10 items-center justify-center rounded-full bg-white/80
+                           shadow hover:bg-white/95 focus:outline-none focus:ring-2 focus:ring-[#A98177]"
                 aria-label="Scroll right"
               >
                 <ArrowRIcon />
               </button>
-
             </div>
           </section>
         )}
-
       </div>
-    </>
 
+      {/* Overlay */}
+      {selectedIndex !== null && (
+        <div
+          className="fixed inset-0 z-[999] bg-black/70 flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          onClick={closeImage}
+        >
+          <div className="relative max-w-[95vw] max-h-[90vh] flex items-center" onClick={(e) => e.stopPropagation()}>
+            {/* Prev */}
+            <button
+              onClick={prevImage}
+              className="absolute left-0 top-1/2 -translate-y-1/2 p-3 bg-white/85 rounded-full shadow hover:bg-white"
+              aria-label="Previous"
+            >
+              <ArrowLIcon className="w-6 h-6" />
+            </button>
+
+            {/* รูปใหญ่ */}
+            <img
+              src={gallery[selectedIndex]}
+              alt={`Screenshot ${selectedIndex + 1}`}
+              className="max-w-[90vw] max-h-[85vh] rounded-xl shadow-lg"
+            />
+
+            {/* Next */}
+            <button
+              onClick={nextImage}
+              className="absolute right-0 top-1/2 -translate-y-1/2 p-3 bg-white/85 rounded-full shadow hover:bg-white"
+              aria-label="Next"
+            >
+              <ArrowRIcon className="w-6 h-6" />
+            </button>
+
+            {/* Close */}
+            <button
+              onClick={closeImage}
+              className="absolute -top-4 -right-4 w-10 h-10 bg-white/90 rounded-full shadow flex items-center justify-center hover:bg-white"
+              aria-label="Close"
+            >
+              X
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
