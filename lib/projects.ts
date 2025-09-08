@@ -2,7 +2,7 @@
 export type LinkItem = {
     label: string;
     href: string;
-    kind?: "github" | "figma" | "demo" | "canva"; // ✅ เพิ่มชนิดลิงก์ (ไอคอนจะเลือกจากค่านี้)
+    kind?: "github" | "figma" | "demo" | "canva" | "doc"; // ✅ เพิ่มชนิดลิงก์ (ไอคอนจะเลือกจากค่านี้)
 };
 
 // lib/projects.ts
@@ -21,6 +21,7 @@ export type Project = {
     tools?: {
         frontend?: string;
         backend?: string;
+        design?: string;
         hardware?: string;
         planned?: string;             // ✅ ใช้ string ตัวเล็ก
         ui?: string;
@@ -49,7 +50,7 @@ export const projects: Project[] = [
         },
         links: [
             { label: "Admin GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/Admin_Dashboard", kind: "github" },
-            
+
             // { label: "Live Demo", href: "https://your-demo.site", kind: "demo" },
             { label: "User GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/Mobile_App_FinalProject", kind: "github" },
             { label: "Admin Figma Design", href: "https://www.figma.com/proto/ILoNAJAHd3SKVONGCceJwK/Admin_Dashboard?node-id=4-2&t=Rd0sjbWoglJANiyB-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A12", kind: "figma" },
@@ -93,6 +94,39 @@ export const projects: Project[] = [
             "Smooth scroll and animated transitions",
             "Support for GitHub / Figma per project",
         ],
+    },
+    {
+        slug: "concert-ticket",
+        title: "Concert Event and Ticket Management System (2025)",
+        description:
+            "A desktop application for booking and managing concert tickets. It supports Admin and Customer users, where Admin can manage concert data, customers, and sales reports, while Customers can register an account, choose a concert, select seats and check the status of their bookings.",
+        role: "Developer, System Designer",
+        tech: "Java, OOP, UML (Use Case / Activity / Class Diagram)",
+        thumb: "/images/concert-ticket.svg",
+        hero: "/images/ticket1.png",
+        headerImages: [
+            "/images/ticket3.png",
+        ],
+        
+        duration: "Jan 2025 – Mar 2025",
+        team: "3 Members (System Analyst, Designer, Developer)",
+        tools: {
+            frontend: "Java Swing (Desktop UI)",
+            backend: "Java OOP, Database (MySQL/SQLite)",
+            design: "UML (Use Case, Activity, Class Diagram)",
+            ui: "Java Swing Components"
+        },
+        links: [
+            { label: "GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/Concert_Tickets", kind: "github" },
+            { label: "Handout", href: "/Mini Project ระบบจัดการกิจกรรมคอนเสิร์ตและบัตรเข้าชม.pdf", kind: "doc" },
+        ],
+        features: [
+            "Login and account registration system",
+            "Concert event management (add/edit/delete)",
+            "Customer data management",
+            "Seat booking and ticket issuance",
+            "Sales report for Admin users"
+        ]
     },
     {
         slug: "Petofour",

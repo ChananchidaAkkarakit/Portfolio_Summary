@@ -11,7 +11,8 @@ import GithubIcon from "@/assets/github.svg";
 import FigmaIcon from "@/assets/figma.svg";
 import ExternalIcon from "@/assets/external-link.svg";
 import CanvaIcon from "@/assets/canva.svg";
-const ICONS = { github: GithubIcon, figma: FigmaIcon, demo: ExternalIcon, canva: CanvaIcon } as const;
+import DocIcon from "@/assets/doc.svg";
+const ICONS = { github: GithubIcon, figma: FigmaIcon, demo: ExternalIcon, canva: CanvaIcon, doc:DocIcon } as const;
 
 const ArrowLIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
@@ -146,6 +147,7 @@ export default function ProjectDetail() {
                 <div className="space-y-1">
                   {tools.frontend && <div>Frontend: {tools.frontend}</div>}
                   {tools.backend && <div>Backend: {tools.backend}</div>}
+                  {tools.design && <div>Design: {tools.design}</div>}
                   {tools.hardware && <div>Hardware: {tools.hardware}</div>}
                   {tools.ui && <div>UI: {tools.ui}</div>}
                   {tools.planned && <div>Planned Stack: {tools.planned}</div>}
@@ -255,7 +257,7 @@ export default function ProjectDetail() {
             {/* Prev */}
             <button
               onClick={prevImage}
-              className="absolute -left-6 top-1/2 -translate-y-1/2 p-3 bg-white/85 rounded-full shadow hover:bg-white"
+              className="absolute -left-6 top-1/2 -translate-y-1/2 p-2 md:p-3 bg-white/85 rounded-full shadow hover:bg-white"
               aria-label="Previous"
             >
               <ArrowLIcon className="w-6 h-6 text-[#A98177]" />
@@ -265,13 +267,13 @@ export default function ProjectDetail() {
             <img
               src={gallery[selectedIndex]}
               alt={`Screenshot ${selectedIndex + 1}`}
-              className="max-w-[90vw] max-h-[85vh] rounded-xl shadow-lg"
+              className="max-w-[75vw] max-h-[70vh] rounded-xl shadow-lg"
             />
 
             {/* Next */}
             <button
               onClick={nextImage}
-              className="absolute -right-6 top-1/2 -translate-y-1/2 p-3 bg-white rounded-full shadow hover:bg-white"
+              className="absolute -right-6 top-1/2 -translate-y-1/2 p-2 md:p-3 bg-white rounded-full shadow hover:bg-white"
               aria-label="Next"
             >
               <ArrowRIcon className="w-6 h-6 text-[#A98177]" />
@@ -280,7 +282,7 @@ export default function ProjectDetail() {
             {/* Close */}
             <button
               onClick={closeImage}
-              className="absolute -top-4 -right-4 w-10 h-10 text-[#6E412C] bg-white/90 rounded-full shadow flex items-center justify-center hover:bg-white"
+              className="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-8 h-8 md:w-10 md:h-10 text-[#6E412C] bg-white/90 rounded-full shadow flex items-center justify-center hover:bg-white"
               aria-label="Close"
             >
               X
