@@ -12,7 +12,8 @@ import FigmaIcon from "@/assets/figma.svg";
 import ExternalIcon from "@/assets/external-link.svg";
 import CanvaIcon from "@/assets/canva.svg";
 import DocIcon from "@/assets/doc.svg";
-const ICONS = { github: GithubIcon, figma: FigmaIcon, demo: ExternalIcon, canva: CanvaIcon, doc:DocIcon } as const;
+import PosterIcon from "@/assets/poster.svg";   
+const ICONS = { github: GithubIcon, figma: FigmaIcon, demo: ExternalIcon, canva: CanvaIcon, doc:DocIcon, poster: PosterIcon } as const;
 
 const ArrowLIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"

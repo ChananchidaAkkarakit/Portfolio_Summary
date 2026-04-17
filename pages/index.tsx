@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Image from "next/image";
 import Profile from "../public/images/profile.png";
-import PhotoID from "../public/images/photoID.jpg";
+import PhotoID from "../public/images/photo_ID.jpg";
 import FolderIcon from "../src/assets/folder.svg";
 import ContactInfo from "../components/ContactInfo";
 
@@ -91,21 +91,12 @@ export default function Home() {
           </div>
 
           <p className="leading-relaxed font-karla text-lg md:text-[20px] text-justify text-[#A98177] indent-10">
-            I’m a fourth-year Computer Engineering student with a strong interest in Frontend Development, especially in UI/UX design.
+            A highly motivated Computer Engineering graduate specialized in Frontend Development with hands-on experience in building scalable web applications and AI-integrated solutions. Recently completed a rigorous internship at True Corporation Public Co., Ltd., where I developed proficiency in UX/UI design, Cloud deployment, and AI model implementation.
           </p>
           <p className="leading-relaxed font-karla text-lg md:text-[20px] text-justify text-[#A98177] indent-10">
-            I enjoy creating applications that are user-friendly, effective, and well-structured using tools like React, MUI, and Flutter.
-          </p>
+            Passionate about creating seamless user experiences, I enjoy building applications that are user-friendly, effective, and well-structured using tools like React, MUI, and Flutter. While my primary expertise lies in frontend development, I am also continuously learning about overall system architecture to better understand and collaborate on full-stack projects.          </p>
           <p className="leading-relaxed font-karla text-lg md:text-[20px] text-justify text-[#A98177] indent-10">
-            While I specialize in frontend, I’m also building up my backend skills to better understand and handle full-stack systems.
-            I’ve gained experience working with APIs, managing databases, and implementing authentication using tools like MySQL and Supabase.
-          </p>
-          <p className="leading-relaxed font-karla text-lg md:text-[20px] text-justify text-[#A98177] indent-10">
-            I see every project as a chance to learn and grow. Although I haven’t interned in a corporate setting yet,
-            I’m eager to face real-world challenges and contribute fully as part of a team.
-          </p>
-          <p className="leading-relaxed font-karla text-lg md:text-[20px] text-justify text-[#A98177] indent-10">
-            Thank you for your time — I look forward to the opportunity to grow with your organization.
+            I am eager to contribute my technical skills to a fast-paced development team, face real-world challenges, and grow alongside your organization. Thank you for your time.
           </p>
         </div>
 
@@ -175,15 +166,15 @@ export default function Home() {
         {/* Resume ฝั่งขวา: แสดงเฉพาะ lg+ (ซ่อนบน md) */}
         <div className="hidden md:mr-20 lg:flex lg:col-start-3 lg:col-span-1 flex-col items-center gap-6 self-start pt-4 lg:justify-center">
           <a
-            href="/Resume_Chananchida_Thai.pdf"
+            href="/CV_Chananchida_akkarakit.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex flex-col items-center gap-3"
           >
             <FolderIcon width={90} height={90} className="text-[#9AB0C5]" />
-            <span className="font-karla text-xl text-[#8A6F64]">Resume_Thai.pdf</span>
+            <span className="font-karla text-xl text-[#8A6F64]">CV_English.pdf</span>
           </a>
-          <a
+          {/* <a
             href="/Resume_Chananchida_English.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -191,7 +182,7 @@ export default function Home() {
           >
             <FolderIcon width={90} height={90} className="text-[#9AB0C5]" />
             <span className="font-karla text-xl text-[#8A6F64]">Resume_English.pdf</span>
-          </a>
+          </a> */}
         </div>
 
         {/* Interests Desktop */}
@@ -215,15 +206,15 @@ export default function Home() {
             </div>
 
             {/* Resume — xs: อยู่ใต้ Interests (เรียงแนวนอน), sm+: อยู่ขวา */}
-            <div className="flex flex-row justify-center gap-10 mt-4 sm:flex-col sm:items-center sm:gap-1 sm:mt-0">
-              <a href="/Resume_Chananchida_Thai.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
+            <div className="flex flex-row justify-left gap-10 mt-4 sm:flex-col sm:items-center sm:gap-1 sm:mt-0">
+              <a href="/CV_Chananchida_akkarakit.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
                 <FolderIcon className="text-[#9AB0C5]" width={56} height={56} />
-                <span className="font-karla text-[15px] text-[#8A6F64] text-center">Resume_Thai.pdf</span>
+                <span className="font-karla text-[15px] text-[#8A6F64] text-center">CV_English.pdf</span>
               </a>
-              <a href="/Resume_Chananchida_English.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
+              {/* <a href="/Resume_Chananchida_English.pdf" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center">
                 <FolderIcon className="text-[#9AB0C5]" width={56} height={56} />
                 <span className="font-karla text-[15px] text-[#8A6F64] text-center">Resume_English.pdf</span>
-              </a>
+              </a> */}
             </div>
 
           </div>

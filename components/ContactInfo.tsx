@@ -4,9 +4,8 @@ import GithubIcon from "@/assets/github.svg";
 import LocationIcon from "@/assets/location.svg";
 import MapEmbed from "./MapEmbed";
 export default function ContactSection() {
-  const address = "Khlong Hok, Khlong Luang, Pathum Thani";
-  // ⭐ ใส่พิกัดจริงของคุณแทนค่าตัวอย่างนี้
-  const coords = { lat: 14.04099486925066, lng: 100.73677126755845 };
+  const address = "Phatthanakan, Suan Luang, Bangkok";
+  const coords = {lat: 13.71876118708502, lng: 100.6262195326144};
 
   return (
     <section id="contact" className="md:mt-8">
@@ -45,7 +44,7 @@ export default function ContactSection() {
           <p className="flex items-center gap-3 text-[15px] md:text-2xl text-[#6E412C]">
             <LocationIcon className="w-7 h-7 md:w-10 md:h-10 text-[#E996B2] shrink-0" />
             <a
-              href="https://maps.app.goo.gl/vgML8DnERkVSMSUr9"
+              href="https://maps.app.goo.gl/2xfLviN91NQ9wjNJ6"
               target="_blank"
               rel="noopener noreferrer"
               className="underline"

@@ -24,7 +24,7 @@ type SkillCategory = {
 
 const aboutData = {
   intro:
-    "I am a fourth-year Computer Engineering student with a focus on Frontend development. I am skilled at accurately translating designs and effectively collaborating with backend systems. I am a continuous learner who values teamwork and is dedicated to applying my skills to improve both myself and the organization.",
+    "A highly motivated Computer Engineering graduate specialized in Frontend Development with hands-on experience in building scalable web applications and AI-integrated solutions. Recently completed a rigorous internship at True Corporation Public Co., Ltd., where I developed proficiency in UX/UI design, Cloud deployment, and AI model implementation. Passionate about creating seamless user experiences and eager to contribute technical skills to a fast-paced development team.",
 
   skillsTech: [
     { title: "Frontend Frameworks & Libraries", items: ["React", "Flutter"] },
@@ -34,16 +34,40 @@ const aboutData = {
     { title: "Development Tools & Languages", items: ["Vite", "TypeScript"] },
   ] as SkillCategory[],
   skillsSoft: [
-    "Leadership", "Creativity", "Flexibility",
-    "Teamwork", "Attention to Detail", "Management Skills",
-  ],
+    "Teamwork", "Leadership", "Creativity", "Flexibility", 
+    "Proactive", "Eager to learn", "Attention to Detail", "Management Skills"
 
+  ],
   Projects: [
+    {
+      title: "AI Agent : Network Incident correlation in RAN and IPRAN Domain",
+      role: "Frontend Developer & UI Designer", 
+      org: "Internship Project",
+      period: "Jan - Mar 2026",
+      details: [
+        "Intuitive web interface for AI interaction and data visualization",
+        "Structured data transition from SQL to Graph Database",
+        "Automated workflows via n8n with Azure APIM & Key Vault security",
+    ],
+      link: { label: "Project detail", href: "/projects/AI-Agent" },
+    },
+    {
+      title: "TRUE Site ID : Preventive Maintenance (PM)",
+      role: "Frontend Developer & UI Designer", 
+      org: "Internship Project",
+      period: "Dec 2025",
+      details: [
+        "Mobile-first web app for on-site PM data logging",
+        "Redesigned UI with structured inspection checklists",
+        "Built-in visual evidence and Before/After photo comparisons",
+      ],
+      link: { label: "Project detail", href: "/projects/truesiteid" },
+    },
     {
       title: "A work submission tracking and reporting system ",
       role: "Full-stack Developer",
       org: "University Project",
-      period: "Mar 2025 – Present",
+      period: "Mar - Nov 2025",
       details: [
         "Admin dashboard (React + MUI) + Flutter mobile app",
         "Raspberry Pi + VL53L0X + MQTT, Node-RED",
@@ -108,7 +132,7 @@ const aboutData = {
       title: "Rajamangala University of Technology Thanyaburi",
       org: "B.Eng. Computer Engineering",
       period: "2022 – Present",
-      details: ["Expected Graduation: March 2026 | GPAX: 3.81", "Achievements : Academic Year 1/2023 (GPA 4.00)"],
+      details: ["Expected Graduation: March 2026 | GPAX: 3.79", "Achievements : Academic Year 1/2023 (GPA 4.00)"],
     },
         {
       title: "Uthaiwitthayakhom School",

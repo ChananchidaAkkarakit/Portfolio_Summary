@@ -2,7 +2,7 @@
 export type LinkItem = {
     label: string;
     href: string;
-    kind?: "github" | "figma" | "demo" | "canva" | "doc"; // ✅ เพิ่มชนิดลิงก์ (ไอคอนจะเลือกจากค่านี้)
+    kind?: "github" | "figma" | "demo" | "canva" | "doc" | "poster"; // ✅ เพิ่มชนิดลิงก์ (ไอคอนจะเลือกจากค่านี้)
 };
 
 // lib/projects.ts
@@ -32,6 +32,82 @@ export type Project = {
 
 export const projects: Project[] = [
     {
+        slug: "AI-Agent",
+        title: "AI Agent : Network Incident correlation in RAN and IPRAN Domain (January - March 2026)",
+        description:
+            "Developed a comprehensive AI Agent platform, featuring an intuitive UI/UX and a strategic data architecture transition from traditional relational tables to a Graph Database to support complex AI data relationships and processing. The system also integrates automated workflows via n8n, with high-level security ensured by Azure APIM and Key Vault for robust API credential management.",
+        role: "Frontend Developer, UX/UI Designer",
+        tech: "React, TypeScript, tailwindcss, Figma",
+        thumb: "/images/AIAgent/Desktop - 1.png",
+        gallery: [
+            "/images/AIAgent/Desktop - 1.png",
+            "/images/AIAgent/Desktop - 2.png",
+            "/images/AIAgent/Desktop - 3.png",
+        ],
+        hero:"/images/AIAgent/Desktop - 1.png",
+        duration: "Jan - Mar 2026",
+        team: "Group Projects",
+        tools: {
+            frontend: "React + Vite + tailwindcss",
+            // backend: "Supabase (PostgreSQL), MQTT, Node-RED",
+            // hardware: "Raspberry Pi, VL53L0X, MCP23017, PCA9685",
+            ui: "Figma (Prototype)",
+        },
+        links: [
+            { label: "AI Agent Poster", href: "/AIAgent_Poster.pdf", kind: "poster" },
+        ],
+        features: [
+            "Intuitive web-based UI/UX for seamless user interaction",
+            "Architected data transition from relational tables to Graph Database for complex AI relationships",
+            "Automated workflow integration using n8n",
+            "Secure API credential management via Azure APIM & Key Vault",
+        ],
+    },
+    {
+        slug: "truesiteid",
+        title: "TRUE Site ID : Preventive Maintenance (PM) (December 2026)",
+        description:
+            "A web application designed for on-site technicians to record inspection and preventive maintenance (PM) data. The system features a completely redesigned, mobile-friendly UI and introduces new practical functionalities. It streamlines workflows, allowing field teams to input data quickly and conveniently while eliminating the complexity of the legacy system.",
+        role: "Frontend Developer, UX/UI Designer, Deployment",
+        tech: "React, TypeScript, tailwindcss, Figma",
+        thumb: "/images/truesiteid/Desktop - 3.svg",
+        gallery: [
+            "/images/truesiteid/Desktop - 3.svg",
+            "/images/truesiteid/Desktop - 8.svg",
+            "/images/truesiteid/Desktop - 10.svg",
+            "/images/truesiteid/Desktop - 11.svg",
+            "/images/truesiteid/Desktop - 12.svg",
+            "/images/truesiteid/Desktop - 13.svg",
+            "/images/truesiteid/Desktop - 14.svg",
+            "/images/truesiteid/Desktop - 15.svg",
+        ],
+        hero:"/images/truesiteid/Desktop - 3.svg",
+        duration: "Dec 2026",
+        team: "Solo Projects",
+        tools: {
+            frontend: "React + Vite + tailwindcss",
+            // backend: "Supabase (PostgreSQL), MQTT, Node-RED",
+            // hardware: "Raspberry Pi, VL53L0X, MCP23017, PCA9685",
+            ui: "Figma (Prototype)",
+        },
+        // links: [
+        //     { label: "Admin GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/Admin_Dashboard", kind: "github" },
+
+        //     // { label: "Live Demo", href: "https://your-demo.site", kind: "demo" },
+        //     { label: "User GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/Mobile_App_FinalProject", kind: "github" },
+        //     { label: "Admin Figma Design", href: "https://www.figma.com/proto/ILoNAJAHd3SKVONGCceJwK/Admin_Dashboard?node-id=4-2&t=Rd0sjbWoglJANiyB-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A12", kind: "figma" },
+        //     { label: "User Figma Design (Flow 1 & 2)", href: "https://www.figma.com/proto/M2Np1ouTmaPGKkw0Ae3v0F/Users_Mobile?node-id=2-2&t=9AmLzCEr4bgIP9Mn-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2&show-proto-sidebar=1", kind: "figma" },
+        //     // { label: "Live Demo", href: "https://your-demo.site", kind: "demo" },
+        // ],
+        features: [
+            "Centralized dashboard for real-time site status",
+            "Structured accordion-style inspection checklist",
+            "Built-in image upload for visual evidence",
+            "Before & After data and photo comparison",
+            "Comprehensive logging for physical site data",
+        ],
+    },
+    {
         slug: "locker",
         title: "A work submission tracking and reporting system (2025)",
         description:
@@ -50,7 +126,6 @@ export const projects: Project[] = [
         },
         links: [
             { label: "Admin GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/Admin_Dashboard", kind: "github" },
-
             // { label: "Live Demo", href: "https://your-demo.site", kind: "demo" },
             { label: "User GitHub Repository", href: "https://github.com/ChananchidaAkkarakit/Mobile_App_FinalProject", kind: "github" },
             { label: "Admin Figma Design", href: "https://www.figma.com/proto/ILoNAJAHd3SKVONGCceJwK/Admin_Dashboard?node-id=4-2&t=Rd0sjbWoglJANiyB-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A12", kind: "figma" },
@@ -70,12 +145,11 @@ export const projects: Project[] = [
         title: "Personal Portfolio Website (2025)",
         description:
             "A responsive portfolio website designed to present my engineering projects, resume, and UI/UX designs in a clean, professional layout. Built with a focus on clear structure, visual hierarchy, and accessibility across devices.",
-        role: "Full‑stack Developer (in progress) & UI Designer",
+        role: "Full‑stack Developer (in progress) & UX/UI Designer",
         tech: "Next.js, TypeScript, Tailwind CSS, Figma",
         thumb: "/images/project2.png",
         hero: "/images/project2.png",
         headerImages: ["/images/project2add.png",],
-
         duration: "August 2025 - Present",
         team: "Solo Projects",
         tools: {
@@ -137,14 +211,14 @@ export const projects: Project[] = [
         tech: "Figma, Flutter (prototype)",
         thumb: "/images/project3.svg",
         gallery: [
-            "/images/petofout/P1.svg",
-            "/images/petofout/P2.svg",
-            "/images/petofout/P3.svg",
-            "/images/petofout/P4.svg",
-            "/images/petofout/P5.svg",
-            "/images/petofout/P6.svg",
-            "/images/petofout/P7.svg",
-            "/images/petofout/P8.svg",
+            "/images/petofour/P1.svg",
+            "/images/petofour/P2.svg",
+            "/images/petofour/P3.svg",
+            "/images/petofour/P4.svg",
+            "/images/petofour/P5.svg",
+            "/images/petofour/P6.svg",
+            "/images/petofour/P7.svg",
+            "/images/petofour/P8.svg",
         ],
         hero: "/images/project3.svg",
         duration: "November 2023",
