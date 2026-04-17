@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Image from "next/image";
 import Profile from "../public/images/profile.png";
-import PhotoID from "../public/images/photo_ID.jpg";
+import PhotoID from "../public/images/photo-ID.jpg";
 import FolderIcon from "../src/assets/folder.svg";
 import ContactInfo from "../components/ContactInfo";
 
