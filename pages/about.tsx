@@ -27,10 +27,10 @@ const aboutData = {
     "A highly motivated Computer Engineering graduate specialized in Frontend Development with hands-on experience in building scalable web applications and AI-integrated solutions. Recently completed a rigorous internship at True Corporation Public Co., Ltd., where I developed proficiency in UX/UI design, Cloud deployment, and AI model implementation. Passionate about creating seamless user experiences and eager to contribute technical skills to a fast-paced development team.",
 
   skillsTech: [
-    { title: "Frontend Frameworks & Libraries", items: ["React", "Flutter"] },
-    { title: "Design & UI", items: ["Figma", "Material UI", "UI Implementation"] },
+    { title: "Frontend Frameworks & Libraries", items: ["React", "React Native", "Flutter"] },
+    { title: "Design & UI", items: ["Figma", "Material UI", "Tailwind CSS", "UI Implementation"] },
     { title: "Backend & API", items: ["Express.js"] },
-    { title: "Database", items: ["PostgreSQL"] },
+    { title: "Database", items: ["PostgreSQL", "MySQL", "Memgraph"] },
     { title: "Development Tools & Languages", items: ["Vite", "TypeScript"] },
   ] as SkillCategory[],
   skillsSoft: [
